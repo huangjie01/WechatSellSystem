@@ -1,0 +1,20 @@
+
+spring:
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/sellSystem?characterEncoding=utf-8
+      username: root
+      password: huangjie19931004
+  jpa:
+    show-sql: true
+
+
+  freemarker:
+    template-loader-path: classpath:/templates
+
+mvc:
+    static-path-pattern: /static/**
+
+server:
+  context-path: /sell
+
