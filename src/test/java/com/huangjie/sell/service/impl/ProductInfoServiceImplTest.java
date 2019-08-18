@@ -9,10 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
+import java.util.List;
 
 /**
  * Created by huangjie on 2019/7/19.
@@ -40,11 +39,21 @@ public class ProductInfoServiceImplTest {
 
         Pageable pageable = new PageRequest(0, 10);
         Page<ProductInfo> all = productInfoService.findAll(pageable);
+        List<ProductInfo> content = all.getContent();
+        ProductInfo productInfo = content.get(0);
+        productInfo.getProductStatusEnum().getMessage();
+        System.out.println(productInfo.getProductStatusEnum().getMessage());
         System.out.println(all.getTotalElements());
     }
 
     @Test
     public void testSave() throws Exception {
 
+    }
+
+
+    @Test
+    public void testOffSale(){
+        ProductInfo productInfo=productInfoService.findOne("");
     }
 }

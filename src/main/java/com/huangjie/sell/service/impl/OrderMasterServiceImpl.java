@@ -46,7 +46,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
 
 
     @Override
-    @Transactional
+    @Transactional(rollbackOn = Exception.class)
     public OrderDTO create(OrderDTO orderDTO) {
 
         BigDecimal orderAccount = new BigDecimal(BigInteger.ZERO);
@@ -95,10 +95,12 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         if (orderMaster == null) {
             throw new SellException(ResultEnum.ORDER_NOT_EXIT);
         }
+
         List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
         if (CollectionUtils.isEmpty(orderDetailList)) {
             throw new SellException(ResultEnum.ORDER_DETAIL_NOT_EXIT);
         }
+
         OrderDTO orderDTO = new OrderDTO();
         BeanUtils.copyProperties(orderMaster, orderDTO);
         orderDTO.setOrderDetailList(orderDetailList);
@@ -114,7 +116,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackOn = Exception.class)
     public OrderDTO cancel(OrderDTO orderDTO) {
         //首先判断订单状态
         if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
@@ -127,12 +129,14 @@ public class OrderMasterServiceImpl implements OrderMasterService {
         BeanUtils.copyProperties(orderDTO, orderMaster);
         orderMaster.setOrderStatus(OrderStatusEnum.CANCEL.getCode());
         orderMasterRepository.save(orderMaster);
+
         //返还库存
         List<OrderDetail> orderDetailList = orderDTO.getOrderDetailList();
         if (CollectionUtils.isEmpty(orderDetailList)) {
             log.error("【返还库存】 订单详情为空 orderDTO={}", orderDTO);
             throw new SellException(ResultEnum.ORDER_EMPTY_ERROR);
         }
+
         List<CardDTO> cardDTOList = orderDetailList.stream().map(e -> new CardDTO(e.getProductId(),
                 e.getProductQuantity())).collect(Collectors.toList());
         productInfoService.increaseStock(cardDTOList);
@@ -145,7 +149,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackOn = Exception.class)
     public OrderDTO finish(OrderDTO orderDTO) {
         if (!OrderStatusEnum.NEW.getCode().equals(orderDTO.getOrderStatus())) {
             log.error("【完结订单】订单状态错误 orderDTO={}", orderDTO);
@@ -164,7 +168,7 @@ public class OrderMasterServiceImpl implements OrderMasterService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackOn = Exception.class)
     public OrderDTO paid(OrderDTO orderDTO) {
         //判断订单状态
         if (!OrderStatusEnum.NEW.getCode().equals(orderDTO.getOrderStatus())) {
