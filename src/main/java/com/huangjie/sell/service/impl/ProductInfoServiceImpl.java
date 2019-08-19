@@ -99,6 +99,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
 
     @Override
     public ProductInfo offSale(String productId) {
+
         ProductInfo productInfo = productInfoRepository.findOne(productId);
         if (productInfo == null) {
             log.error("【下架商品 商品不存在】");
@@ -111,5 +112,6 @@ public class ProductInfoServiceImpl implements ProductInfoService {
         }
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
         return productInfoRepository.save(productInfo);
+
     }
 }

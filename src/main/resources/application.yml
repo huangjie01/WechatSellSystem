@@ -4,7 +4,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://localhost:3306/sellSystem?characterEncoding=utf-8
       username: root
-      password: huangjie19931004
+      password: root
   jpa:
     show-sql: true
 

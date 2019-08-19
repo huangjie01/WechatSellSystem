@@ -41,7 +41,6 @@ public class ProductCategoryRepositoryTest {
 
     @Test
     public void testUpdate() {
-
         ProductCategory save = repository.findOne(2);
         save.setCategoryType(100);
         repository.save(save);
