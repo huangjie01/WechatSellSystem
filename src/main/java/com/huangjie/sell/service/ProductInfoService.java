@@ -11,6 +11,7 @@ import java.util.List;
  * Created by huangjie on 2019/7/18.
  */
 public interface ProductInfoService {
+
     ProductInfo findOne(String productID);
 
     /**
