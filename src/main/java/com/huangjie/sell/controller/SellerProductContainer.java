@@ -46,13 +46,29 @@ public class SellerProductContainer {
     @GetMapping("/off_sale")
     public ModelAndView offSale(@RequestParam(value = "productId") String productId,Map<String,Object> map){
         try {
-            ProductInfo productInfo = productInfoService.offSale(productId);
+           productInfoService.offSale(productId);
+            map.put("url","/sell/seller/product/list");
         }catch (SellException e){
              log.error("【商品下架】"+e.getMessage());
              map.put("msg",e.getMessage());
-             map.put("url","sell/seller/product/list");
+             map.put("url","/sell/seller/product/list");
              return new ModelAndView("common/error",map);
         }
         return new ModelAndView("common/success",map);
+    }
+
+    @GetMapping("/on_sale")
+    public ModelAndView onSale(@RequestParam("productId") String productId,Map<String,Object> map){
+        try {
+            productInfoService.onSale(productId);
+            map.put("url","/sell/seller/product/list");
+        }catch (SellException e){
+            log.error("【商品下架】"+e.getMessage());
+            map.put("msg",e.getMessage());
+            map.put("url","/sell/seller/product/list");
+            return new ModelAndView("common/error",map);
+        }
+        return new ModelAndView("common/success",map);
+
     }
 }

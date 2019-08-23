@@ -55,7 +55,6 @@
             <artifactId>spring-boot-starter-freemarker</artifactId>
             <version>1.4.1.RELEASE</version>
         </dependency>
-
     </dependencies>
 
     <build>

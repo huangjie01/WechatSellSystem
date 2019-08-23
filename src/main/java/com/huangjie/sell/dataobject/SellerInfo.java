@@ -35,7 +35,6 @@ public class SellerInfo {
     private String userName;
     @Column(name = "password")
     private String passWord;
-
     @Column(name = "openid")
     private String openId;
     @Column(name = "create_time")
