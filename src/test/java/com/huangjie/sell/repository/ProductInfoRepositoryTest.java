@@ -33,10 +33,10 @@ public class ProductInfoRepositoryTest {
     @Test
     public void testSave(){
         ProductInfo productInfo=new ProductInfo();
-        productInfo.setProductId("0987654");
+        productInfo.setProductId("0987653");
         productInfo.setCategoryType(2);
-        productInfo.setProductName("哈根达斯");
-        productInfo.setProductDescription("女生非常喜欢吃");
+        productInfo.setProductName("Macbook Pro");
+        productInfo.setProductDescription("程序员的最爱");
         productInfo.setProductIcon("http://img.hqew.com/File/Images/0-9999/0/HR/2017425181741594802.jpg");
         productInfo.setProductPrice(new BigDecimal(45.5));
         productInfo.setProductStatus(1);
@@ -44,6 +44,7 @@ public class ProductInfoRepositoryTest {
         productInfo.setCreateTime(new Date(System.currentTimeMillis()));
         productInfo.setUpdateTime(new Date(System.currentTimeMillis()));
         ProductInfo save = productInfoRepository.save(productInfo);
+
         Assert.assertNotNull(save);
     }
 
