@@ -1,12 +1,10 @@
 package com.huangjie.sell.service.impl;
 
 import com.huangjie.sell.dataobject.OrderDetail;
-import com.huangjie.sell.dataobject.OrderMaster;
 import com.huangjie.sell.dto.OrderDTO;
 import com.huangjie.sell.enums.OrderStatusEnum;
 import com.huangjie.sell.enums.PayStatusEnum;
 import com.huangjie.sell.service.OrderMasterService;
-import org.hibernate.validator.cfg.defs.AssertTrueDef;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

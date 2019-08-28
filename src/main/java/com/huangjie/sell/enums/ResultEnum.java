@@ -18,7 +18,8 @@ public enum ResultEnum {
     ORDER_EMPTY_ERROR(-6, "订单详情为空"),
     ORDER_UPDATE_FAIL(-7, "更新订单状态错误"),
     ORDER_PAY_STATUS_ERROR(-8, "支付状态错误"),
-    PRODUCT_STATUS_ERROR(-9,"商品状态错误");
+    PRODUCT_STATUS_ERROR(-9,"商品状态错误"),
+    LOGIN_FAIL(-10,"登录失败,信息错误");
     private Integer code;
     private String msg;
 

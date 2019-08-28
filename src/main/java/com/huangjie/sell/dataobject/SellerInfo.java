@@ -1,7 +1,6 @@
 package com.huangjie.sell.dataobject;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -35,7 +34,6 @@ public class SellerInfo {
     private String userName;
     @Column(name = "password")
     private String passWord;
-
     @Column(name = "openid")
     private String openId;
     @Column(name = "create_time")
