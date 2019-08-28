@@ -37,7 +37,7 @@
                             <td>${orderDTO.getOrderStatusEnum().getMsg()}</td>
                             <td>${orderDTO.getPayStatusEnum().getMsg()}</td>
                             <td>${orderDTO.createTime}</td>
-                            <td>详情</td>
+                            <td><a href="detail?orderId=${orderDTO.orderId}">详情</a></td>
                             <td>
                                 <#if orderDTO.getOrderStatusEnum().getCode()==1>
                                     <a href="cancel?orderId=${orderDTO.orderId}">取消</a>

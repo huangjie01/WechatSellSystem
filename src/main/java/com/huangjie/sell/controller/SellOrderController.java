@@ -61,7 +61,7 @@ public class SellOrderController {
         }
         map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMsg());
         map.put("url", "/sell/seller/order/list");
-        return new ModelAndView("common/success",map);
+        return new ModelAndView("common/success", map);
     }
 
     @GetMapping("/detail")
@@ -79,12 +79,11 @@ public class SellOrderController {
         map.put("url", "/sell/seller/order/list");
         map.put("orderDTO", orderDTO);
 
-        return new ModelAndView("order/detail",map);
+        return new ModelAndView("order/detail", map);
     }
 
-    @GetMapping("/finished")
-    public ModelAndView finished(@RequestParam("orderId") String orderId, Map<String, Object> map) {
-
+    @GetMapping("/finish")
+    public ModelAndView finish(@RequestParam("orderId") String orderId, Map<String, Object> map) {
 
         try {
             OrderDTO orderDTO = orderMasterService.findOne(orderId);
@@ -96,9 +95,8 @@ public class SellOrderController {
         }
         map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMsg());
         map.put("url", "/sell/seller/order/list");
-        return new ModelAndView("common/success",map);
+        return new ModelAndView("common/success", map);
     }
-
 
 
 }
