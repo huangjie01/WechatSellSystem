@@ -21,7 +21,7 @@
         <!-- 配置滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
               <!-- 配置文件路径-->
-            <fileNamePattern>/Users/huangjie/JavaProject/imooc/logger/info/info.%d.log </fileNamePattern>
+            <fileNamePattern>/home/huangjie/JavaProject/WechatSellSystem/logger/info/info.%d.log </fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -36,7 +36,7 @@
         <!-- 配置滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 配置文件路径-->
-            <fileNamePattern>/Users/huangjie/JavaProject/imooc/logger/error/error.%d.log </fileNamePattern>
+            <fileNamePattern>/home/huangjie/JavaProject/WechatSellSystem/logger/error/error.%d.log </fileNamePattern>
         </rollingPolicy>
     </appender>
 

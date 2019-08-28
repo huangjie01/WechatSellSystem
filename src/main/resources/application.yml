@@ -1,10 +1,9 @@
-
 spring:
   datasource:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/sellSystem?characterEncoding=utf-8
-      username: root
-      password: huangjie19931004
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sellSystem?characterEncoding=utf-8
+    username: root
+    password: root
   jpa:
     show-sql: true
 
@@ -16,7 +15,7 @@ spring:
     host: 127.0.0.1
     port: 6379
 mvc:
-    static-path-pattern: /static/**
+  static-path-pattern: /static/**
 
 
 
@@ -35,3 +34,7 @@ server:
     templateId:
       orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
 
+projectUrl:
+  wechatMpAuthorize: http://sell.natapp4.cc
+  wechatOpenAuthorize: http://sell.natapp4.cc
+  sell: http://sell.natapp4.cc

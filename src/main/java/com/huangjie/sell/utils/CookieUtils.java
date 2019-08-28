@@ -47,10 +47,11 @@ public class CookieUtils {
     public static Map<String, Cookie> getCookieMap(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         Map<String, Cookie> cookieMap = new HashMap<>();
-        for (Cookie cookie : cookies) {
-            cookieMap.put(cookie.getName(), cookie);
+        if (cookies!=null) {
+            for (Cookie cookie : cookies) {
+                cookieMap.put(cookie.getName(), cookie);
+            }
         }
-
         return cookieMap;
     }
 }
