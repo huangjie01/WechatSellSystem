@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,13 +43,37 @@ public class ProductCategoryMapperTest {
 
     @Test
     public void findByCategoryType() {
-        ProductCategory productCategory = mapper.findByCategoryType(2);
+        ProductCategory productCategory = mapper.findByCategoryType(1);
         Assert.assertNotNull(productCategory);
     }
 
     @Test
     public void findAllProductCategory() {
         List<ProductCategory> allProductCategory = mapper.findAllProductCategory();
+        System.out.println(allProductCategory.toString());
         Assert.assertEquals(allProductCategory.size(),3);
+    }
+
+    @Test
+    public void findProductCategoryByName() {
+        ProductCategory productCategory = mapper.findProductCategoryByName("程序员最爱");
+        System.out.println(productCategory);
+    }
+
+    @Test
+    public void updateByCategoryType() {
+       int count=  mapper.updateByCategoryType("程序员必备",2);
+        System.out.println(count);
+    }
+
+    @Test
+    public void updateByObject() {
+        ProductCategory productCategory=new ProductCategory();
+        productCategory.setCategoryName("程序媛比备");
+        productCategory.setCategoryType(2);
+        productCategory.setCreateTime(new Date(System.currentTimeMillis()));
+        productCategory.setUpdateTime(new Date(System.currentTimeMillis()));
+      int count=  mapper.updateByObject(productCategory);
+        System.out.println(count);
     }
 }

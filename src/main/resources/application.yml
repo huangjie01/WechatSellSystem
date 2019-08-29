@@ -38,3 +38,6 @@ projectUrl:
   wechatMpAuthorize: http://sell.natapp4.cc
   wechatOpenAuthorize: http://sell.natapp4.cc
   sell: http://sell.natapp4.cc
+logging:
+  level:
+    com.huangjie.sell.dataobject.mapper: trace
